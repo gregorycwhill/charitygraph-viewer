@@ -1,106 +1,67 @@
 # CharityGraph Viewer — Agent Instructions
 
-> The former CauseBase name is retained only for documented legacy compatibility and immutable release material. Current Viewer code, URLs, environment variables, and documentation use CharityGraph.
-
 **Status:** Canonical repository instructions  
-**Version:** 0.1
+**Version:** 0.2
 
 ## Shared CharityGraph project memory
 
 The canonical shared state and planning documents live in the sibling
 [`charitygraph-data`](https://github.com/gregorycwhill/charitygraph-data) repository:
 
+- `DOCUMENT_AUTHORITY.md`
 - `CURRENT_STATE.md`
 - `ROADMAP.md`
 - `IMPLEMENTATION_PLAN.md`
 - `TEST_PLAN.md`
 - `CODEX_TO_CHATGPT_HANDOFF.md`
 
-Read those files before changing cross-product contracts. Do not create or maintain workspace-root duplicates.
+Read those documents before changing cross-product contracts. Do not create or maintain workspace-root duplicates.
 
 ## Product boundary
 
-CauseBase Viewer is for discovery, search, inspection, provenance and correction.
+CharityGraph Viewer provides discovery, search, inspection, provenance and correction over an explicitly selected CharityGraph Data release.
 
-Do not add personalised recommendations, charity quality scores, best-charity rankings, donation nudges, portfolio optimisation, payments, user-account infrastructure or a proprietary CauseBase datastore.
+Do not add personalised recommendations, charity quality scores, best-charity rankings, donation nudges, portfolio optimisation, payments, user-account infrastructure or an independent Viewer datastore.
 
-## Data ownership
+Viewer is not an independent source of truth. It must not manually maintain charity facts, summaries, taxonomies, embeddings or estimates. Cards are public release projections; Builder’s private working records remain outside Viewer.
 
-Viewer consumes CauseBase Data. It must not become an independent source of truth.
+## Identity and release fidelity
 
-Do not manually maintain charity facts, summaries, taxonomies, embeddings or estimates inside Viewer code.
+Use the CharityGraph subject and stable public card route for navigation. A legacy subject ID may be displayed or searched when required by public contract 0.5 compatibility; it is not a new internal identity. ABN and ACNC identifiers remain external identifiers.
 
-Treat opaque CauseBase subject ID and stable card URL as the primary navigation identity. ABN and ACNC identifiers are displayed/searchable external identifiers.
+Viewer renders the selected public card projection and must not rewrite substantive card content client-side. Display provenance, confidence, estimation method, release and freshness context clearly.
 
-## Static-first
+## Static-first operation
 
-Prefer a static browser architecture. Do not introduce a backend unless a concrete requirement cannot reasonably be met by static/public data plus external contribution/discussion mechanisms.
+Prefer the static browser architecture. Do not introduce a backend unless a concrete requirement cannot reasonably be met by static/public data and external contribution mechanisms.
 
 ## Search versus recommendation
 
 Allowed:
 
-- text/faceted/taxonomy search;
-- semantic search;
-- semantic neighbours;
+- text, facet and taxonomy search;
+- descriptive semantic search and semantic neighbours;
 - multi-entity centroid/blend exploration;
 - factual side-by-side comparison;
-- transparent sort controls.
+- transparent retrieval sorting.
 
 Not allowed:
 
 - unexplained desirability ranking;
-- “recommended for you”;
-- quality stars/scores;
-- hidden objective functions intended to change giving behaviour.
+- “recommended for you” or “better charities” language;
+- quality stars or scores;
+- hidden objectives intended to change giving behaviour.
 
-Search ranking should be understandable as retrieval relevance, not charity merit.
-
-## Card fidelity
-
-Viewer renders the canonical CauseBase Card. Do not rewrite substantive card content client-side.
-
-Display provenance, confidence and estimation method clearly enough that users can distinguish fact from inference.
+Search ranking must be understandable as retrieval relevance, not charity merit. Similarity is descriptive.
 
 ## Corrections
 
-- Field-level edit controls create proposals; they do not mutate source data.
-- Prefill entity, field, current value and release/version.
-- Correction status/history should be inspectable where available.
+- Field-level controls create correction proposals; they do not mutate source data.
+- Prefill the subject context, field, current value and release/version where available.
+- Correction status/history is inspectable only where a governed public projection exists.
 - Open-ended discussion is distinct from structured correction.
-- The first public enriched-card experience requires a private prefilled correction intake handoff and traceable acknowledgement; do not publish raw submissions automatically.
+- Never publish raw submissions automatically.
 
-## Taxonomies
+## Accessibility and completion
 
-Support multiple taxonomies without presenting the UI default as universal truth.
-
-## Semantic interaction
-
-Similarity is descriptive.
-
-Use labels such as Similar organisations, Semantic neighbours and Explore nearby.
-
-Avoid Recommended alternatives, Better charities and You should also support.
-
-Never expose synthetic or hash-based fixture neighbours as though they were semantic results. Real embeddings, classifications and similarities arrive together for real enriched cards.
-
-If multiple charities are blended, explain that the result is semantic proximity to the selected set.
-
-## Accessibility
-
-Do not make dense grid interaction the only way to use Viewer. Primary controls/cards/corrections must be keyboard- and screen-reader-usable. Mobile should remain usable.
-
-## Performance
-
-Do not require every browser to download the full canonical high-dimensional embedding corpus if a smaller generated semantic index can support the experience.
-
-## Before declaring work complete
-
-1. Run static/unit/browser tests.
-2. Test against a representative fixture.
-3. Test search/filter/card navigation.
-4. Confirm deep links.
-5. Confirm correction links prefill correctly.
-6. Confirm provenance/estimate methods remain visible.
-7. Check that recommendation language/logic has not slipped in.
-8. Test keyboard/mobile behaviour for touched interactions.
+Primary controls, cards and correction actions must be keyboard- and screen-reader-usable. Mobile must remain usable. Before declaring work complete, run tests, inspect representative fixtures, verify deep links, correction prefill, provenance and estimation visibility, and confirm no recommendation language or logic has slipped in.
