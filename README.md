@@ -6,4 +6,4 @@ The current 0.5 data release is immutable historical material. Viewer can read i
 
 Use `CHARITYGRAPH_DATA_RELEASE_DIR` to prepare a bundle from an explicit validated release. `CAUSEBASE_DATA_RELEASE_DIR` remains a temporary compatibility alias.
 
-Shared product documentation lives in [CharityGraph Data](https://github.com/gregorycwhill/charitygraph-data). See its [migration guide](https://github.com/gregorycwhill/charitygraph-data/blob/main/docs/migration/causebase-to-charitygraph.md) for retained historical identifiers.
+Shared product documentation and official reuse policy live in [CharityGraph Data](https://github.com/gregorycwhill/charitygraph-data). Read its [BRAND_AND_REUSE.md](https://github.com/gregorycwhill/charitygraph-data/blob/main/BRAND_AND_REUSE.md) and [PUBLIC_COMMITMENTS.md](https://github.com/gregorycwhill/charitygraph-data/blob/main/PUBLIC_COMMITMENTS.md). See the [migration guide](https://github.com/gregorycwhill/charitygraph-data/blob/main/docs/migration/causebase-to-charitygraph.md) only for retained historical identifiers.

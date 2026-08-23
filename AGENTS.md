@@ -20,17 +20,17 @@ Read those files before changing cross-product contracts. Do not create or maint
 
 ## Product boundary
 
-CauseBase Viewer is for discovery, search, inspection, provenance and correction.
+CharityGraph Viewer is for discovery, search, inspection, provenance and correction.
 
-Do not add personalised recommendations, charity quality scores, best-charity rankings, donation nudges, portfolio optimisation, payments, user-account infrastructure or a proprietary CauseBase datastore.
+Do not add personalised recommendations, charity quality scores, best-charity rankings, donation nudges, portfolio optimisation, payments, user-account infrastructure or a proprietary CharityGraph datastore.
 
 ## Data ownership
 
-Viewer consumes CauseBase Data. It must not become an independent source of truth.
+Viewer consumes CharityGraph Data. It must not become an independent source of truth.
 
 Do not manually maintain charity facts, summaries, taxonomies, embeddings or estimates inside Viewer code.
 
-Treat opaque CauseBase subject ID and stable card URL as the primary navigation identity. ABN and ACNC identifiers are displayed/searchable external identifiers.
+Treat legacy opaque subject ID and stable card URL as the primary navigation identity. ABN and ACNC identifiers are displayed/searchable external identifiers.
 
 ## Static-first
 
@@ -58,7 +58,7 @@ Search ranking should be understandable as retrieval relevance, not charity meri
 
 ## Card fidelity
 
-Viewer renders the canonical CauseBase Card. Do not rewrite substantive card content client-side.
+Viewer renders the canonical CharityGraph Card. Do not rewrite substantive card content client-side.
 
 Display provenance, confidence and estimation method clearly enough that users can distinguish fact from inference.
 

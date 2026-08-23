@@ -1,11 +1,11 @@
-# CauseBase Viewer UX Specification
+# CharityGraph Viewer UX Specification
 
 **Status:** Canonical Viewer experience contract  
 **Version:** 0.1
 
 ## 1. Purpose
 
-CauseBase Viewer helps humans inspect the CauseBase information space.
+CharityGraph Viewer helps humans inspect the CharityGraph information space.
 
 The primary loop is:
 
@@ -17,10 +17,10 @@ Semantic exploration may extend search, but Viewer does not recommend or persuad
 
 ```text
 +------------------------------+--------------------------------------+
-| Search / filters / results   | Selected CauseBase Card              |
+| Search / filters / results   | Selected CharityGraph Card              |
 |                              |                                      |
 | [search.................]    | Organisation name                    |
-|                              | CauseBase summary                    |
+|                              | CharityGraph summary                    |
 | taxonomy filters             | activities / beneficiaries           |
 | geography                    | participation                        |
 | participation                | financials                           |
@@ -46,7 +46,7 @@ A user may enter a natural-language description such as:
 
 > practical creek restoration volunteering in northern Melbourne
 
-Viewer may use CauseBase semantic representations to retrieve nearby organisations.
+Viewer may use CharityGraph semantic representations to retrieve nearby organisations.
 
 ## 5. Semantic neighbours
 
@@ -71,8 +71,8 @@ Possible filters include similar-but-local, similar-but-smaller or similar missi
 ### Identity
 Names, ABN, status, website and major identifiers.
 
-### CauseBase summary
-Neutral, dense CauseBase synthesis.
+### CharityGraph summary
+Neutral, dense CharityGraph synthesis.
 
 ### Organisation's own description
 Clearly attributed where shown.
@@ -128,7 +128,7 @@ A dense grid view may be provided for data-oriented users as a secondary represe
 
 Do not introduce Top picks, Best match, Recommended for you, Give now, quality stars or desirability scores.
 
-Downstream applications may build those experiences using CauseBase Data.
+Downstream applications may build those experiences using CharityGraph Data.
 
 ## 14. Accessibility and responsive behaviour
 
