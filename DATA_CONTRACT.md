@@ -28,7 +28,7 @@ Exact filenames/formats may evolve.
 
 ### Browser entity index
 
-Compact public representation for initial search/results, including opaque CharityGraph subject ID, subject kind, names, selected external identifiers, geography, source-aware coverage observations, selected taxonomy facets, participation flags, selected financial/size fields and a stable card locator. ABN is an external identifier, not the Viewer or card primary key.
+Compact public representation for initial search/results, including an opaque subject identity, represented by the retained legacy public key in contract 0.5 and by an explicitly migrated identity in a future contract, plus subject kind, names, selected external identifiers, geography, source-aware coverage observations, selected taxonomy facets, participation flags, selected financial/size fields and a stable card locator. ABN is an external identifier, not the Viewer or card primary key.
 
 ### Card JSON
 
