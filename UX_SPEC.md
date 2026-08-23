@@ -1,141 +1,53 @@
-# CauseBase Viewer UX Specification
+# CharityGraph Viewer UX Specification
 
 **Status:** Canonical Viewer experience contract  
-**Version:** 0.1
+**Version:** 0.2
 
 ## 1. Purpose
 
-CauseBase Viewer helps humans inspect the CauseBase information space.
+CharityGraph Viewer helps people inspect the CharityGraph information space through a public card projection.
 
 The primary loop is:
 
-**Discover -> Search -> Inspect -> Verify -> Correct**
+**Discover → Search → Inspect → Verify → Correct**
 
-Semantic exploration may extend search, but Viewer does not recommend or persuade.
+Semantic exploration extends discovery, but Viewer does not recommend or persuade.
 
-## 2. Default desktop layout
+## 2. Search and exploration
 
-```text
-+------------------------------+--------------------------------------+
-| Search / filters / results   | Selected CauseBase Card              |
-|                              |                                      |
-| [search.................]    | Organisation name                    |
-|                              | CauseBase summary                    |
-| taxonomy filters             | activities / beneficiaries           |
-| geography                    | participation                        |
-| participation                | financials                           |
-| size/financial filters       | taxonomies                           |
-|                              | evidence / provenance                |
-| result 1                     | corrections/history                  |
-| result 2                     | semantic neighbours                  |
-| result 3                     |                                      |
-+------------------------------+--------------------------------------+
-```
+Support name, ABN/identifier, keyword, geography, taxonomy, activity, beneficiary, participation and appropriate financial/size filters. Retrieval ranking represents relevance, not merit.
 
-The visual design may evolve. The conceptual separation between index/navigation and knowledge card should remain.
+Semantic search may retrieve organisations near a descriptive natural-language query. Semantic neighbours use neutral labels such as **Similar organisations** or **Semantic neighbours**. A multi-select blend must explain that it finds semantic proximity to the selected set, not preference or quality.
 
-## 3. Search
+## 3. Card layout and sections
 
-Support name, ABN/identifier, keyword, geography, taxonomy, activity, beneficiary, participation and appropriate financial/size filters.
+A desktop layout separates search/results from the selected CharityGraph card. The card may include:
 
-Search ranking represents retrieval relevance, not merit.
+- identity, names, status, website and external identifiers;
+- a neutral CharityGraph summary;
+- clearly attributed organisation self-description;
+- activities, beneficiaries and role-specific geography;
+- stable participation modes and current opportunities with freshness;
+- financial facts, metrics and estimates with method/confidence/provenance;
+- multiple taxonomy views;
+- evidence, citations, observation dates and derivation information;
+- descriptive semantic relationships;
+- correction/discussion status where available.
 
-## 4. Semantic search
+Viewer renders the selected CharityGraph Data release and must not invent facts or recompute release fields differently in JavaScript.
 
-A user may enter a natural-language description such as:
+## 4. Navigation and correction
 
-> practical creek restoration volunteering in northern Melbourne
+Each public card has a stable addressable route. Selecting a result updates the URL and a shared link restores the selected card. Challengable fields expose a correction action with subject, field, current value and release context prefilled where possible. The action creates a proposal, not an immediate edit.
 
-Viewer may use CauseBase semantic representations to retrieve nearby organisations.
+Show lodged, under-review, queried, accepted, rejected and incorporated statuses only when governed data exists. Discussion and correction remain separate actions.
 
-## 5. Semantic neighbours
+## 5. Descriptive data views
 
-A card may display semantically similar organisations using neutral labels such as Similar organisations or Semantic neighbours.
+A dense grid/table may be provided as a secondary representation for data-oriented users, with filtering, sorting, column selection and export. It must not become a recommendation surface.
 
-## 6. Multi-select semantic blend
+Do not introduce **Top picks**, **Best match**, **Recommended for you**, **Give now**, quality stars or desirability scores. Downstream applications may construct those experiences from CharityGraph Data.
 
-A user may select multiple charities and request a combined semantic search.
+## 6. Accessibility, responsive behaviour and tone
 
-Conceptually, Viewer finds organisations near the centroid or other defined combination of selected semantic representations.
-
-Explain it plainly, for example:
-
-> Explore organisations semantically similar to this combination.
-
-This is discovery, not preference inference.
-
-Possible filters include similar-but-local, similar-but-smaller or similar mission with a specified participation mode.
-
-## 7. Card sections
-
-### Identity
-Names, ABN, status, website and major identifiers.
-
-### CauseBase summary
-Neutral, dense CauseBase synthesis.
-
-### Organisation's own description
-Clearly attributed where shown.
-
-### Activities / beneficiaries / geography
-Concrete structured understanding.
-
-### Participation
-Stable modes and current opportunities, with freshness.
-
-### Financials
-Facts, metrics and estimates. Fundraising expenditure clearly shows method/confidence/provenance.
-
-### Classifications
-Multiple taxonomy views.
-
-### Evidence
-Source classes, citations, observation dates and derivation information.
-
-### Similar organisations
-Descriptive semantic relationships.
-
-### Corrections / discussion
-Visible proposals, status/history and discussion links where relevant.
-
-## 8. Deep links
-
-Each entity/card should have a stable addressable URL. Selecting a result should update the URL, and a shared link should restore the selected card.
-
-Where practical, important search/taxonomy states may also be shareable.
-
-## 9. Correction affordance
-
-Fields/sections that can be challenged should expose a clear correction action without requiring re-entry of organisation, field, current value or release/version.
-
-The action creates a proposal, not an immediate edit.
-
-## 10. Public status
-
-Show statuses such as lodged, under review, queried, accepted, rejected and incorporated where correction data is available.
-
-Users should be able to distinguish a published value from a pending challenge.
-
-## 11. Discussion
-
-Open-ended discussion may link to GitHub Discussions or another public mechanism. Discussion and correction are separate actions.
-
-## 12. Grid/table mode
-
-A dense grid view may be provided for data-oriented users as a secondary representation, with filtering, sorting, column selection and export.
-
-## 13. No recommendation affordances
-
-Do not introduce Top picks, Best match, Recommended for you, Give now, quality stars or desirability scores.
-
-Downstream applications may build those experiences using CauseBase Data.
-
-## 14. Accessibility and responsive behaviour
-
-The two-pane desktop design should degrade cleanly to smaller screens. On mobile, search/results and selected card may become sequential views.
-
-Core actions must not depend on hover. Keyboard access and screen-reader semantics are required.
-
-## 15. Tone
-
-Viewer should feel like public data infrastructure or an inspection tool, not a fundraising campaign.
+The two-pane desktop design degrades to sequential mobile views. Core actions do not depend on hover; keyboard access and screen-reader semantics are required. Viewer should feel like public data infrastructure and an inspection tool, not a fundraising campaign.

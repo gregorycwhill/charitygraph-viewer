@@ -1,30 +1,30 @@
-# CauseBase Phase 2A.1 human-test feedback form
+# CharityGraph correction and feedback-form operations
 
-Create one private Google Form titled **CauseBase human-test feedback**. Do not publish responses, create GitHub issues automatically, or expose contact details.
+**Status:** Current repository guide for the external correction/feedback intake  
+**Scope:** Viewer prefill wiring only; the external form remains separately owned
 
-## Fields
+The Viewer’s current `src/corrections.mjs` contains the verified prefill endpoint and the code-level entry mapping. This repository does not rename or configure the external form remotely, and this guide makes no claim about the form’s external title or ownership.
 
-| Field name | Google Forms type | Required | Helper text / values |
-| --- | --- | --- | --- |
-| Feedback type | Dropdown | Yes | `factual correction`; `outdated information`; `missing information`; `organisation self-description`; `classification dispute`; `methodology dispute`; `general product feedback`; `other` |
-| Organisation / display name | Short answer | No | Prefilled for card-specific corrections. |
-| CauseBase ID | Short answer | No | Prefilled opaque ID; do not substitute ABN. |
-| Dataset / release version | Short answer | No | Prefilled release challenged. |
-| Viewer / card URL | Short answer | No | Prefilled project-site URL with hash where available. |
-| Field / section | Short answer | No | Prefilled for field-level correction. |
-| Current displayed value | Paragraph | No | Prefilled snapshot of challenged text. |
-| Proposed correction or feedback | Paragraph | Yes | State the requested change or general feedback. |
-| Explanation | Paragraph | Yes | Explain why the change is warranted. |
-| Supporting source / evidence URL | Short answer | No | Public link preferred; do not request confidential documents. |
-| Contact name | Short answer | No | Optional. |
-| Contact email | Short answer with email validation | No | Optional; used only for follow-up. |
+## Human-facing fields
 
-## Wiring information required from the form owner
+| Field | Purpose |
+| --- | --- |
+| Feedback type | Factual correction, outdated/missing information, self-description, classification/methodology dispute or general feedback |
+| Organisation / display name | Optional display context |
+| Legacy subject ID | Human-readable label for the public 0.5 identity; current code maps the exact `causebase_id` field |
+| Dataset / release version | Release challenged |
+| Viewer / card URL | Prefilled public route where available |
+| Field / section | Field-level challenge context |
+| Current displayed value | Optional snapshot, subject to the 1,200-character URL safeguard |
+| Proposed correction or feedback | Required contributor explanation |
+| Explanation | Why the change is warranted |
+| Supporting source/evidence URL | Public evidence preferred; confidential documents are not requested |
+| Contact name/email | Optional follow-up only |
 
-After creating the form, provide:
+The current source mapping uses the existing organisation, exact legacy `causebase_id`, dataset version, Viewer URL, field and current-value entries. Do not rename the compatibility field or invent `charitygraph_id`.
 
-1. the form response URL for `CAUSEBASE_CORRECTION_INTAKE_URL`;
-2. each Google Forms `entry.<number>` identifier for the prefillable fields: organisation, CauseBase ID, release version, Viewer URL, field/section and current displayed value;
-3. confirmation that responses are restricted to the intended private reviewers or otherwise handled privately.
+## Operational privacy rules
 
-Until these details are supplied, Viewer must state that external intake is not configured. Generic feedback uses the same form without card fields; card-specific correction supplies the documented prefill context.
+The form is a convenience intake, not the correction data model. Do not publish responses, contact details, supporting material or an unmoderated proposal ledger. Viewer only creates a prefilled handoff; Builder moderation and governed decisions determine whether a correction enters a later release.
+
+Keep the endpoint and entry mapping aligned with `src/corrections.mjs`, and verify any external-form change with the form owner before changing code. The module-owned endpoint is not configured through a global window variable.

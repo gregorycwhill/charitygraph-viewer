@@ -1,93 +1,42 @@
-# CauseBase Viewer Data Contract
+# CharityGraph Viewer Data Contract
 
-**Status:** Provisional Viewer implementation boundary — shared CauseBase contract remains subject to reality spike  
-**Version:** 0.1-draft
+**Status:** Viewer implementation boundary for the implemented public contract 0.5  
+**Version:** 0.5 compatibility
 
-## 1. Principle
+## 1. Authority and boundary
 
-CauseBase Viewer consumes published CauseBase Data.
+CharityGraph Viewer consumes the implemented public contract 0.5 published by CharityGraph Data. It reads validated published or explicitly staged release projections and never Builder’s private source or processed working directories.
 
-Viewer does not read Builder's private source or processed working directories and does not maintain an independent charity datastore.
+Viewer is a convenience interface over an independently usable public Data product. It does not maintain an independent charity datastore or author a new public contract.
+
+The public 0.5 payload retains the exact legacy compatibility field `causebase_id`. In human-facing prose this is the **legacy subject ID**. Do not replace it with `charitygraph_id`. Builder’s future internal identity is `subject_id`; that internal term does not change the immutable public 0.5 contract.
 
 ## 2. Required public capabilities
 
-Viewer needs public data sufficient to:
+Viewer needs published data sufficient to list/index subjects, search/filter, load a selected public card projection, display provenance and estimation methods, inspect taxonomies, display correction status and navigate descriptive semantic similarity where enabled.
 
-- list/index entities;
-- search/filter;
-- load a selected card;
-- display provenance/estimate methods;
-- inspect multiple taxonomies;
-- display correction status;
-- navigate semantic similarity;
-- support semantic search/blending where enabled.
+## 3. Release projections
 
-## 3. Likely publication artefacts
+CharityGraph Data may publish a browser index, per-subject JSON, Markdown cards, taxonomy artefacts, correction status projections, semantic indexes and analytical CSV/JSONL/Parquet assets. Exact file layout is release-owned.
 
-Exact filenames/formats may evolve.
+A browser index may include legacy subject ID, subject kind, names, external identifiers, geography, source-aware coverage, taxonomy facets, participation flags, selected financial/size fields and a stable card locator. The legacy subject ID is not the Viewer’s new internal identity.
 
-### Browser entity index
+A selected public card projection carries the release-safe identity, observations, source references, compact evidence, coverage, derivatives and release metadata allowed by contract 0.5. Viewer representations must agree on shared released values.
 
-Compact public representation for initial search/results, including opaque CauseBase subject ID, subject kind, names, selected external identifiers, geography, source-aware coverage observations, selected taxonomy facets, participation flags, selected financial/size fields and a stable card locator. ABN is an external identifier, not the Viewer or card primary key.
+## 4. Representation and semantic authority
 
-### Card JSON
+If Viewer displays a field, the published CharityGraph card projection is authoritative for that release. Viewer must not recompute financial metrics, taxonomy assignments or prose differently, except for explicitly Viewer-only descriptive exploration such as semantic blending.
 
-Rich card representation for selected-entity inspection. This may be bulk or per-entity depending on measured performance.
+Compact semantic indexes are derived release assets and must identify their method/version. Failure of a secondary index must not prevent basic search and card inspection where possible.
 
-### Markdown card
+## 5. Version, freshness and failure behaviour
 
-Public human/LLM-readable representation. Viewer may link to it but need not render from Markdown.
+Viewer displays or determines the Data release/version, relevant card/schema version and publication time. It distinguishes not-found-after-assessment, source unavailability, retrieval failure and not-yet-processed work, and does not present stale retained observations as current without indication.
 
-### Taxonomy data
+Correction proposals identify the release and value challenged. Source links and downloadable Data artefacts remain available without requiring the national corpus for ordinary browsing.
 
-Public term definitions and hierarchies needed for filtering/inspection.
+## 6. Agent usability and future contracts
 
-### Correction intake and proposal index
+Published data provides stable subject/card routes, per-subject JSON and Markdown, machine-readable release/licence/schema metadata, provenance and freshness conventions, release discovery and selective retrieval.
 
-The first enriched-card release requires a private, prefilled correction intake handoff and traceable acknowledgement. Governed public status/history arrives when moderation and proposal-ledger infrastructure is ready.
-
-### Semantic index
-
-A browser-appropriate semantic representation may be published separately from canonical full embeddings. The contract is semantic functionality, not a specific vector encoding.
-
-## 4. Full analytical assets
-
-CauseBase Data may also publish CSV, JSONL, Parquet, canonical embeddings and similarity tables.
-
-Viewer may link to these without loading them during ordinary browsing.
-
-## 5. Version awareness
-
-Viewer should be able to display/determine CauseBase release/version, card/schema version where relevant and last build/publication time.
-
-A correction proposal must identify the release/value challenged.
-
-## 6. Representation authority
-
-If Viewer displays a card field, the published CauseBase Card is authoritative for that release.
-
-Do not recompute financial metrics, taxonomy assignments or prose differently in JavaScript unless it is explicitly a Viewer-only exploration operation such as semantic blending.
-
-## 7. Semantic exploration
-
-Canonical high-dimensional embeddings may be too large for routine browser delivery.
-
-Builder may publish precomputed neighbours, reduced/quantised vectors or another compact semantic index. Any Viewer-specific semantic representation is derived from the canonical release and should identify method/version.
-
-## 8. Staleness
-
-Viewer should respect freshness metadata and distinguish not-found-in-source, source unavailability, retrieval failure and not-yet-processed work. Transient opportunities may have different observation dates from stable card summary information.
-
-Do not present stale retained observations as current without indication.
-
-## 9. Failure behaviour
-
-If a secondary artefact such as the semantic index fails to load, Viewer should still permit basic search/card inspection where possible.
-
-## 10. Downloads
-
-Viewer should provide clear links to CauseBase Data and relevant release artefacts. Viewer is a convenience interface over an independently usable public data product.
-
-## 11. Agent usability
-
-Published data must offer stable subject/card URLs, per-subject JSON and Markdown, machine-readable release/licence/schema metadata, provenance and freshness conventions, latest-release discovery and compact selective retrieval. An unfamiliar coding/AI agent should be able to retrieve and correctly interpret one subject within minutes without downloading the national corpus.
+Any future public-contract change requires a separate product decision, versioned schemas/examples, migration and losslessness analysis, coordinated Data/Viewer acceptance and a new immutable release. This document does not propose or implement one.
