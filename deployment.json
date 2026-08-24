@@ -3,6 +3,6 @@
   "source_branch": "main",
   "deployment_branch": "gh-pages",
   "dataset_version": "0.5.0-2026-08-15",
-  "viewer_commit": "ffaeaa3f8aed625285fc3c915070bd69a7fe47f4",
+  "viewer_commit": "cd6f3720f664a29e0ca7ed8be19797e573fcdfc8",
   "correction_intake": "private Google Forms intake configured with card-context prefill"
 }
