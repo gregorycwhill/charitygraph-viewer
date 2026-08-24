@@ -6,7 +6,7 @@ import { resolve, sep } from "node:path";
 const root = resolve(process.env.CAUSEBASE_OUTPUT_DIR ?? resolve(import.meta.dirname, "..", "dist"));
 const cards = JSON.parse(await readFile(resolve(root, "public/data/causebase.json"), "utf8")).entities;
 const hrefs = [...new Set(cards.flatMap(card => (card.source_native_records ?? []).map(record => `/public/data/source-records/${encodeURIComponent(encodeURIComponent(record.source_record_id))}.json`)))];
-const viewer = new URL("https://gregorycwhill.github.io/CauseBase-Viewer/");
+const viewer = new URL("https://gregorycwhill.github.io/charitygraph-viewer/");
 const invalidActionUrls = cards.flatMap(card => (card.participation_observations ?? []).flatMap(item => {
   if (!item.action_url) return [];
   try {

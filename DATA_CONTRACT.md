@@ -1,11 +1,11 @@
-# CauseBase Viewer Data Contract
+# CharityGraph Viewer Data Contract
 
-**Status:** Provisional Viewer implementation boundary — shared CauseBase contract remains subject to reality spike  
+**Status:** Provisional Viewer implementation boundary — shared CharityGraph contract remains subject to reality spike
 **Version:** 0.1-draft
 
 ## 1. Principle
 
-CauseBase Viewer consumes published CauseBase Data.
+CharityGraph Viewer consumes published CharityGraph Data.
 
 Viewer does not read Builder's private source or processed working directories and does not maintain an independent charity datastore.
 
@@ -28,7 +28,7 @@ Exact filenames/formats may evolve.
 
 ### Browser entity index
 
-Compact public representation for initial search/results, including opaque CauseBase subject ID, subject kind, names, selected external identifiers, geography, source-aware coverage observations, selected taxonomy facets, participation flags, selected financial/size fields and a stable card locator. ABN is an external identifier, not the Viewer or card primary key.
+Compact public representation for initial search/results, including an opaque subject identity, represented by the retained legacy public key in contract 0.5 and by an explicitly migrated identity in a future contract, plus subject kind, names, selected external identifiers, geography, source-aware coverage observations, selected taxonomy facets, participation flags, selected financial/size fields and a stable card locator. ABN is an external identifier, not the Viewer or card primary key.
 
 ### Card JSON
 
@@ -52,19 +52,19 @@ A browser-appropriate semantic representation may be published separately from c
 
 ## 4. Full analytical assets
 
-CauseBase Data may also publish CSV, JSONL, Parquet, canonical embeddings and similarity tables.
+CharityGraph Data may also publish CSV, JSONL, Parquet, canonical embeddings and similarity tables.
 
 Viewer may link to these without loading them during ordinary browsing.
 
 ## 5. Version awareness
 
-Viewer should be able to display/determine CauseBase release/version, card/schema version where relevant and last build/publication time.
+Viewer should be able to display/determine CharityGraph release/version, card/schema version where relevant and last build/publication time.
 
 A correction proposal must identify the release/value challenged.
 
 ## 6. Representation authority
 
-If Viewer displays a card field, the published CauseBase Card is authoritative for that release.
+If Viewer displays a card field, the published CharityGraph Card is authoritative for that release.
 
 Do not recompute financial metrics, taxonomy assignments or prose differently in JavaScript unless it is explicitly a Viewer-only exploration operation such as semantic blending.
 
@@ -86,7 +86,7 @@ If a secondary artefact such as the semantic index fails to load, Viewer should 
 
 ## 10. Downloads
 
-Viewer should provide clear links to CauseBase Data and relevant release artefacts. Viewer is a convenience interface over an independently usable public data product.
+Viewer should provide clear links to CharityGraph Data and relevant release artefacts. Viewer is a convenience interface over an independently usable public data product.
 
 ## 11. Agent usability
 
