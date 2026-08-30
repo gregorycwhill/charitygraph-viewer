@@ -2,6 +2,10 @@
 
 CharityGraph Viewer is the static, source-linked browser for CharityGraph Data. It supports discovery, search, inspection, provenance, and correction proposals; it does not rank charities or provide giving recommendations.
 
+Viewer is one of four CharityGraph products. Builder constructs governed knowledge, Data publishes reusable governed data, and [CharityGraph Playbooks](https://github.com/gregorycwhill/charitygraph-playbooks) publishes governed, open analytical methods for use with general-purpose AI. Playbooks is separate: Viewer may later provide contextual launch or jumping-off affordances, but does not own or govern Playbooks and does not currently host external-model inference.
+
+Any resulting AI analysis is downstream user output, not canonical CharityGraph knowledge merely because a Playbook was used.
+
 The current 0.5 data release is immutable historical material. Viewer can read its legacy files and identifiers as a compatibility input, but future bundles use CharityGraph names and publish canonical GitHub Pages routes at `https://gregorycwhill.github.io/charitygraph-viewer/`.
 
 Use `CHARITYGRAPH_DATA_RELEASE_DIR` to prepare a bundle from an explicit validated release. `CAUSEBASE_DATA_RELEASE_DIR` remains a temporary compatibility alias.
