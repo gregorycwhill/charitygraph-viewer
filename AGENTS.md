@@ -14,7 +14,8 @@ The canonical shared state and planning documents live in the sibling
 - `ROADMAP.md`
 - `IMPLEMENTATION_PLAN.md`
 - `TEST_PLAN.md`
-- `CODEX_TO_CHATGPT_HANDOFF.md`
+- `DEVELOPMENT_METHOD.md` (current cross-project working method)
+- `CODEX_TO_CHATGPT_HANDOFF.md` (historical task-specific handoff)
 
 Read those files before changing cross-product contracts. Do not create or maintain workspace-root duplicates.
 
